@@ -147,7 +147,7 @@
         <div class="grades-box" id="grades-box">
             <div class="student-details">
                 <p><strong>Name:</strong> Sheenal Pritika KUMAR</p>
-                <p><strong>Programme:</strong> PGDCS - PG Diploma in Cyber Security (Global Certification)</p>
+                <p><strong>Programme:</strong> PG Diploma in Cyber Security - PDGCS</p>
             </div>
             <h2>Your Grades</h2>
             <table>
@@ -157,6 +157,7 @@
                         <th>Course Code</th>
                         <th>Course Name</th>
                         <th>Grade</th>
+                        <th>Outcome</th>
                     </tr>
                 </thead>
                 <tbody id="grades-table">
@@ -199,9 +200,9 @@
         function fetchGrades(username, password) {
             return new Promise((resolve, reject) => {
                 // Simulated backend response
-                if (username === 'student' && password === 'password') {
+                if (username === '4544672' && password === '1998-4544672') {
                     resolve([
-                        { term: 'Term 1, 2024', courseCode: 'NIT5081', courseName: 'Cyber Security Essentials', grade: '78/HD' }
+                        { term: 'Term 1', courseCode: 'NIT5081', courseName: 'Cyber Security Essentials', grade: '78/HD', outcome: 'PASS' }
                     ]);
                 } else {
                     reject('Invalid username or password');
@@ -219,16 +220,19 @@
                 const courseCodeCell = document.createElement('td');
                 const courseNameCell = document.createElement('td');
                 const gradeCell = document.createElement('td');
+                const outcomeCell = document.createElement('td');
 
                 termCell.textContent = grade.term;
                 courseCodeCell.textContent = grade.courseCode;
                 courseNameCell.textContent = grade.courseName;
                 gradeCell.textContent = grade.grade;
+                outcomeCell.textContent = grade.outcome;
 
                 row.appendChild(termCell);
                 row.appendChild(courseCodeCell);
                 row.appendChild(courseNameCell);
                 row.appendChild(gradeCell);
+                row.appendChild(outcomeCell);
 
                 gradesTable.appendChild(row);
             });
